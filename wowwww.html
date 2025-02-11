@@ -2,7 +2,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=2.0" />
 <style>
-    .chat-container {
+.UI .chat-container {
     width: 300px;
     height: 400px;
     position: relative;
@@ -16,12 +16,12 @@
 }
 
 
-.chat-container.hidden {
+.UI .chat-container.hidden {
     opacity: 0;
     pointer-events: none;
 }
 
-#chat {
+div .chat {
     height: calc(100% - 40px);
     overflow-y: auto;
     padding: 10px;
@@ -29,7 +29,7 @@
 
 }
 
-#text {
+div .text {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -39,7 +39,7 @@
 
 }
 
-#input {
+#whyy {
     width: 100%;
     height: 100%;
     border: none;
@@ -47,19 +47,19 @@
 
 }
 
-.main-container {
+.UI .main-container {
 position: fixed;
 border: solid 5px #0bd365;
 border-radius: 10px;
 }
 
 
-.main-container.hidden {
+.UI .main-container.hidden {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
 }
-.botmessage {
+p .botmessage {
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: wheat;
     background-color: #201c1c;
@@ -70,7 +70,7 @@ border-radius: 10px;
 }
 
 
-.code-wrapper {
+div .code-wrapper {
     background: #383636;
     border-radius: 4px;
     padding: 12px;
@@ -78,26 +78,32 @@ border-radius: 10px;
     overflow-x: auto;
 }
 
-.code-wrapper code {
+code .code-wrapper {
     font-family: 'Consolas', monospace;
     color: #d4d4d4;
     font-size: 14px;
 }
 
-.code-wrapper pre {
+pre .code-wrapper {
     margin: 0;
     background-color: #201c1c;
 }
 
-.button-container {
+.UI .button-container {
     background-color: black;
+position:relative;
+width: 82%
 }
 </style>
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <div class="main-container">
-      <div class="button-container" disabled>
+    <div class="UI main-container ">
+
+
+      <div class=" UI button-container">
+
+
         <button id="move" disabled>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -144,13 +150,13 @@ border-radius: 10px;
     </svg></button>
       </div>
 
-      <div class="chat-container">
-        <div id="chat">
-          <div id="conversation">
+      <div class="UI chat-container">
+        <div class="chat">
+          <div class="conversation">
           </div>
         </div>
-        <div id="text">
-          <input type="text" id="input" />
+        <div class="text">
+          <input type="text" id="whyy" />
         </div>
       </div>
     </div>
