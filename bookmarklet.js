@@ -1,6 +1,6 @@
 javascript: (function () {
   const CDN_URL =
-    "https://cdn.jsdelivr.net/gh/THEQUIETBOI/AI-chatbot-bookmarklet-verion@refs/heads/main/wowwww.html";
+    "https://raw.githubusercontent.com/THEQUIETBOI/bookt/refs/heads/main/wowwww.html";
   if (CDN_URL) {
     fetch(CDN_URL)
       .then((response) => {
