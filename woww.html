@@ -97,8 +97,8 @@ border-radius: 10px;
   <body>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <div class="main-container">
-      <div class="button-container">
-        <button id="move" disabled>
+      <div class="button-container" disabled>
+        <button id="move">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -260,7 +260,7 @@ localStorage.setItem("key", keys);
     }
   });
 
-  /*function handlePointerDown(e) {
+  function handlePointerDown(e) {
     e.preventDefault();
     isDragging = true;
 
@@ -315,7 +315,7 @@ localStorage.setItem("key", keys);
     }
   });
  
-*/
+
 
   const key = document.getElementById("key")
   key.addEventListener("click", () => {
