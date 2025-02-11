@@ -258,15 +258,9 @@ localStorage.setItem("key", keys);
 
   function handlePointerUp() {
     isDragging = false;
-    document.removeEventListener("mousemove", handlePointerMove);
-    document.removeEventListener("touchmove", handlePointerMove);
-    document.removeEventListener("mouseup", handlePointerUp);
-    document.removeEventListener("touchend", handlePointerUp);
-    document.removeEventListener("mouseleave", handlePointerUp);
+
   }
 
-  moveButton.addEventListener("mousedown", handlePointerDown);
-  moveButton.addEventListener("touchstart", handlePointerDown);
   const hide = document.getElementById("hide");
   document.addEventListener("keydown", (e) => {
     if (e.key.toLowerCase() === "e") {
