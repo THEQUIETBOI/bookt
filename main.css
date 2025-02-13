@@ -1,49 +1,49 @@
+
+
+
+
 .main-container {
-    position: relative;
-    background-color: red;
-height: 600px;
-width: 400px;
+    background-color: gray;
+    height: 410px;
+    position: fixed;
+    width: 300px;
 
+}
+
+.button-container{
+    position: absolute;
+    background-color: darkgoldenrod;
+    width: 300px;
+    height: 40px;
+    z-index:9999999999;
+    margin: -10px 0px;
+
+}
+.buttor {
  
-}
-
-.button-container {
-    background-color: gray;
-}
-
-
-
-#chat-span {
-    position: absolute;
-    background-color: gray;
-    width: 300px;    /* Changed from 100% */
-    height: 300px;   /* Changed from 100% */
-    padding: 10px;
-}
-
-button.button-item {
-    background-color: greenyellow;
-    margin: 10px;
     display: inline;
-}
+margin: 10;
+text-align: center;
 
-div.chat-container {
-    background-color: aliceblue;
-   width: 90%;
-    height: 80%;   /* Changed from 100% */
-    padding: 5%;    /* Changed from 10% */
 }
-
-input.chat-item {
-    width: 100%;    /* Changed from 100% */
-    outline: none;
-    position: absolute;
-    margin: 10px;
+.chat-container{
+    position: fixed;
+    background-color: cornflowerblue;
+    height: 400px;
+    width: 300px;
+    margin: 10px 0;
 }
-
-div.message-container {
-    position: absolute;
-    background-color: red;
-width: 93%;
-left:0;
+.me-container {
+    position: fixed;
+    width: 300px;
+    height: 50px;
+    background-color: rgb(33, 255, 4);
+    top: 400
+}
+.me-container input {
+    position: fixed;
+width: 300px;
+outline: none;
+    height: 50px;
+    box-shadow: none;
 }

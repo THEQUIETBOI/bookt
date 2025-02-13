@@ -1,87 +1,71 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<style>
-  .main-container {
-    position: relative;
-    background-color: red;
-height: 500px;
-width: 300px;
-border: solid 4px blue
+    <style>
+      #main.main-container {
+        position: relative;
+        background-color: red;
+        height: 500px;
+        width: 300px;
+        border: solid 4px blue;
+      }
 
- 
-}
+      #button.button-container {
+        background-color: gray;
+      }
 
-div.button-container {
-    background-color: gray;
-}
+  #chat.chat-container {
+        background-color: aliceblue;
+        width: 90%;
+        height: calc(100% - 120px);
+        padding: 5%;
+        margin: 0 auto;
+      }
 
-
-
-#chat-span {
-    position: absolute;
-    background-color: gray;
-    width: 300px;    /* Changed from 100% */
-    height: 300px;   /* Changed from 100% */
-    padding: 10px;
-}
-
-button.button-item {
-    background-color: greenyellow;
-    margin: 10px;
-    display: inline;
-}
-
-div.chat-container {
-    background-color: aliceblue;
-   width: 90%;
-    height: 80%;   /* Changed from 100% */
-    padding: 5%;    /* Changed from 10% */
-}
-
-input.chat-item {
-    width: 100%;
-background-color: yellow;
-    outline: none;
-border-radius:0;
-height:90%;
-
+      .button-item {
+        background-color: greenyellow;
+        margin: 10px;
+        display: inline;
+      }
 
     
-}
 
-div.message-container {
+      input.chat-item {
+        width: 100%;
+        background-color: yellow;
+        outline: none;
+        border-radius: 0;
+        padding: 8px;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+      }
 
-    background-color: red;
-width: 100%;
-
-
-}
-</style>
+      #message.message-container {
+        background-color: red;
+        width: 100%;
+        padding: 10px;
+        position: absolute;
+        bottom: 0;
+        box-sizing: border-box;
+      }
+    </style>
   </head>
   <body>
     <script src="main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-   <div class="main-container">
-    <div class="button-container">
+    <div id="main" class="main-container" >
+      <div id="button" class="button-container">
         <button class="button-item">Move</button>
         <button class="button-item">hide</button>
         <button class="button-item">settings</button>
-        
+      </div>
+      <div id="chat" class="chat-container"></div>
+      <div id="message" class="message-container">
+        <input type="text" class="chat-item" />
+      </div>
     </div>
-    <div class="chat-container">
 
-    </div>
-    <div class="message-container">
-        <input type="text" class="chat-item">
-    </div>
-   </div>
-
-<script>
-const main= document.createElement("div");
-main.class = "main-container"
-
-</script>
-
+    <script></script>
   </body>
 </html>
