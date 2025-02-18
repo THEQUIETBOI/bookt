@@ -1,107 +1,107 @@
 function init() {
-  const main = document.createElement("div");
-  const button = document.createElement("div");
-  const chat = document.createElement("div");
-  const me = document.createElement("div");
-  const menubuttons = document.createElement("div");
-  const menus = document.createElement("button");
-  const menubar = document.createElement("div");
-  const input = document.createElement("input");
-  const settings = document.createElement("button");
-  const upload = document.createElement("input");
-  const style = document.createElement("style");
-  const settingspage = document.createElement("div");
-  const settingscontainer = document.createElement('div');
+  const mainContainer = document.createElement('div');
+  mainContainer.className ='main-container';
+  document.body.appendChild(mainContainer);
 
-  const apiput = document.createElement('input');
-  const prompt = document.createElement('input');
+  const settingsPage = document.createElement('div');
+  settingsPage.className = 'settings-page';
+  mainContainer.appendChild(settingsPage);
+
+  const settingsContainer = document.createElement('div');
+  settingsContainer.className = 'settings-container';
+  settingsPage.appendChild(settingsContainer);
+
+const apiKey = document.createElement('input');
+  apiKey.type = 'text';
+  apiKey.className = 'api-key';
+  apiKey.placeholder = 'API KEY HERE';
+  settingsContainer.appendChild(apiKey);
+
+const Prompt = document.createElement('input');
+  Prompt.type = "text";
+  Prompt.className = 'prompt';
+  Prompt.placeholder = 'Type your prompt here...';
+  settingsContainer.appendChild(Prompt);
+
   const close = document.createElement('button');
+  close.className = 'close-button';
+  close.innerHTML = 'Close';
+  settingsContainer.appendChild(close);
+
+  const buttonContainer = document.createElement('div');
+  buttonContainer.className = 'buttons-container';
+  mainContainer.appendChild(buttonContainer);
+  
+  
+const chatContainer = document.createElement('div');
+  chatContainer.className = 'chat-container';
+  mainContainer.appendChild(chatContainer);
+
+
+
+const menuContainer = document.createElement('div');
+  menuContainer.className ='me-container';
+  mainContainer.appendChild(menuContainer);
+
+  const menuContainerButtons = document.createElement('div');
+  menuContainerButtons.className ='menu-container-buttons';
+  menuContainer.appendChild(menuContainerButtons);
+
+  const add = document.createElement('button');
+  add.id = 'add';
+  menuContainerButtons.appendChild(add);
+
+  const ChatInput = document.createElement('input');
+  ChatInput.type = "text";
+  ChatInput.className = "chat-input";
+  ChatInput.placeholder = "Type here...";
+  menuContainerButtons.appendChild(ChatInput);
+
+  const menuBar = document.createElement('div');
+  menuBar.className = 'menu-bar';
+  menuContainerButtons.appendChild(menuBar);
+
+  const settingsButton = document.createElement('button');
+  settingsButton.className ='settings';
+settingsButton.innerHTML = "⚙️";
+  menuBar.appendChild(settingsButton);
+
+
+  const settingsLabel = document.createElement('label');
+  settingsLabel.className = 'custom-file-upload';
+  settingsLabel.for = 'hide';
+  menuBar.appendChild(settingsLabel);
+
+
+  const fileUpload = document.createElement('input');
+  fileUpload.type = 'file';
+  fileUpload.id = 'hide';
+  settingsLabel.appendChild(fileUpload);
+
+
+const stylesheet = document.createElement('style');
+  document.head.appendChild(stylesheet);
+
+  
+
+
 
   const marcopolo = document.createElement("script");
-  marcopolo.src = "https://cdn.jsdelivr.net/npm/marked/marked.min.js"
+  marcopolo.src = "https://cdn.jsdelivr.net/npm/marked/marked.min.js";
   document.head.appendChild(marcopolo);
-prompt.type = "text"
-prompt.placeholder = "How the bot acts prompt"
-close.innerHTML  = "Close"
+ 
 
-
-settingscontainer.classList.add("settings-container");
-apiput.id = "key"
-  settingspage.appendChild(apiput);
-  apiput.type = "text";
-  apiput.placeholder = "API KEY HERE";
-  upload.type = "file";
-  input.type = "text";
-
-
-
-
-
-  settingspage.style = `
-  position: absolute;
-    background-color: rgb(46, 46, 46);
-width: 100%;
-height: 60%;
-visibility: hidden;
-display: block;
-
-`;
-
-  settings.onclick = () => {
-    settingspage.style.visibility = "visible";
+  
+  settingsButton.onclick = () => {
+    settingsPage.style.visibility = "visible";
   };
   close.onclick = () => {
-    settingspage.style.visibility = "hidden";
+    settingsPage.style.visibility = "hidden";
   };
-  style.innerHTML = `
-  .hidden {
-    display: none;
-  }
-  .language-html {
-
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXusAZfaVZ5tNP2xrp9_oVLUyi5wAMWlen1Q&s'); /* Replace with your image URL */
-            background-size: cover; /* Cover the entire container */
-            background-position: center; /* Center the image */
-            height: 500px; /* Set a height for the container (adjust as needed) */
-            display: flex; /* Use flexbox for centering */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            color: white; /* Text color for contrast */
-
-  }
-  .language-javascript {
-
-  background-image: url('https://www.haworth.com/content/dam/surfaces/north-america/trim/smooth/other/7r_10/7r_10.jpg'); /* Replace with your image URL */
-            background-size: cover; /* Cover the entire container */
-            background-position: center; /* Center the image */
-            height: 500px; /* Set a height for the container (adjust as needed) */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            color: white; /* Text color for contrast */
-
-
-  } 
-
-
-  .settings-container {
-    
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    margin: 60px;
-    
-}
-
-
-
-
-
-  `;
-
-  main.style = `
-     background-color: #3d425c;
+  stylesheet.innerHTML = `
+ 
+.main-container {
+    background-color: #3d425c;
      right:0;
      bottom: 0;
     height: 410px;
@@ -115,47 +115,67 @@ display: block;
     max-width: 1000px;
     border: 1px solid #ccc; /* Add a border for better visibility */
     z-index: 1000;
-  `;
+}
 
-  button.style = `
-
-    background-color: rgb(78, 78, 78);
+.buttons-container {
+   background-color: rgb(78, 78, 78);
     width: 100%; 
     height: 40px;
-    position: relative;
+    position: absolute;
     justify-content: center;
     display: flex;
     padding: 5px; 
     box-sizing: border-box; 
+}
 
 
 
-`;
-
-  chat.style = `
-  background-color:#3d425c;
-    height: calc(100% - 90px); /* Calculate height dynamically */
-    width: 100%; /* Occupy full width of main container */
+.chat-container {
+    background-color:#3d425c;
+    height: calc(100% - 90px); 
+    width: 100%; 
     overflow-y: auto;
-    box-sizing: border-box; /* Include padding in width calculation */
+    overflow-x: hidden;
+    box-sizing: border-box; 
     padding: 10px;
-`;
+}
 
-  me.style = `
-   height: 20px;
+
+.botmessage {
+    color: rgb(255, 255, 255);
+    font-family: 13px "monospace"; 
+    font-weight: 600;
+    background-color: rgb(32, 32, 32);
+    border-radius: 10px;
+    margin-top: 30px;
+    padding: 15px;
+    overflow-wrap: break-word; 
+}
+
+
+.usermessage {
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    background-color: rgb(32, 32, 32);
+    border-radius: 10px;
+ margin-top: 30px;
+ padding: 15px;
+
+}
+.me-container {
+    height: 20px;
     background-color: #3d425c;
-    box-sizing: border-box; /* Include padding in width calculation */
+    box-sizing: border-box; 
     padding: 5px;
     border-radius: 10px;
     display: flex;          
     flex-direction: row;
     justify-content: center;
     align-items: center;  
-
-
-`;
-  menubuttons.style = `
-   background-color: gray;
+    
+}
+.menu-container-buttons{
+    background-color: gray;
     position: relative;
     display:flex;
     justify-content:center;
@@ -164,102 +184,178 @@ display: block;
     padding: 10px;
     border-radius: 50px;
     border: 4px solid tan;
-`;
-  input.style = `
- height: 100%;
+
+}
+
+.me-container input[type="text"] {
+    height: 100%;
     outline: none;
     padding: 5px;
     border: 1px tan solid;
     background-color: #242424;
     color: rgb(255, 255, 255);
     border-radius: 10px;
-`;
-  menus.style = `
-      border-radius: 100%; /* For a circular button */
-    background-image: url("https://www.svgrepo.com/show/2087/plus.svg");
-    background-color: transparent; /* Important!  So the image shows */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent image tiling */
-    background-size: cover;
-    border: none; /* Remove any default button border */
-    padding:10px; /* Adjust as needed for visual spacing */
-    cursor: pointer; /* Make it look clickable */
-    user-select: none;
-  `;
+}
 
-  menubar.style = `
-   height: 100px;
+.me-container #add {
+    border-radius: 100%; 
+    background-image: url("https://www.svgrepo.com/show/2087/plus.svg");
+    background-color: transparent; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+    border: none; 
+    padding:10px; 
+    cursor: pointer; 
+    user-select: none;
+}
+
+
+
+
+
+.menu-bar{
+    height: 100px;
     width: 40px;
     border-radius: 30px;
     position: absolute;
     justify-items: center;
     align-content: center;
-    opacity: 1%;
+    opacity: 0%;
     left: 0;
     bottom: 70px;
     background-color: gray;
-  `;
-  settings.style = `
-  background-image: url("https://www.svgrepo.com/show/10207/settings.svg");
+    z-index: 1000;
+
+
+
+}
+
+.menu-bar button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#add:focus ~ .menu-bar {
+    height: 100px;
+    display: block;
+    width: 40px;
+    border-radius: 30px;
+    position: absolute;
+    opacity: 100%;
+    bottom: 70px;
+    background-color: gray;
+
+}
+
+.settings{
+background-image: url("https://www.svgrepo.com/show/10207/settings.svg");
 background-position: center;
 background-repeat: no-repeat;
 background-size: contain;
     position: relative;
     display: flex;
     padding: 10px;
-    margin: 30px;
+    width: 30px;
+    height: 30px;
     border-color: transparent;
     background-color: transparent;
-  `;
-  upload.style = `
-  background-image: url("https://www.svgrepo.com/show/10207/settings.svg");
+}
+
+.settings:hover {
+    background-color: #ccc;
+}
+.settings-page{
+    position: absolute;
+    background-color: rgb(46, 46, 46);
+width: 100%;
+height: 60%;
+visibility:hidden;
+
+}
+.settings-page.active{
+    visibility:visible;
+    
+}
+
+.settings-content {
+    color: white;
+    font-size: 25px;
+    padding-top: 50px;
+    padding-left: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.settings-container {
+    
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 60px;
+    
+}
+
+
+
+.custom-file-upload {
+   
+background-image: url("https://www.svgrepo.com/show/28557/upload-sign.svg");
 background-position: center;
 background-repeat: no-repeat;
 background-size: contain;
     position: relative;
     display: flex;
-    padding: 10px;
-    margin: 30px;
+    align-items: center;
+    margin-top: 10px;
+    width: 30px;
+    height: 30px;
+
     border-color: transparent;
     background-color: transparent;
+}
+
+.custom-file-upload:hover {
+    background-color: #ddd; 
+}
+
+.custom-file-upload input[type="file"] {  
+    display: none;
+}
+
+
+p code {
+    background-color: rgb(78, 78, 78);
+display: inline-block;
+color: rgb(228, 228, 228);
+padding: 10px;
+font-family: 'Times New Roman', Times, serif;
+
+}
+p{ 
+    overflow: auto;
+    padding: auto;
+    overflow-wrap: break-word;
+}
+
+
   `;
-  menus.onfocus = () => {
-    menubar.style.opacity = "100%";
-  };
-  menus.onblur = () => {
-    menubar.style.opacity = "0%";
-  };
-  document.body.appendChild(main);
-  main.appendChild(settingspage);
-  settingspage.appendChild(settingscontainer);
 
-  main.appendChild(button);
-  main.appendChild(chat);
-  main.appendChild(me);
-  me.appendChild(menubuttons);
-  menubuttons.appendChild(menus);
-  menubuttons.appendChild(input);
-  menubuttons.appendChild(menubar);
-  menubar.appendChild(settings);
-  settingscontainer.appendChild(apiput);
-settingscontainer.appendChild(prompt);
-  settingscontainer.appendChild(close);
+ 
 
-
-  
-
-  document.body.appendChild(style);
 
   function handlePointerDown(e) {
     e.preventDefault();
     isDragging = true;
 
     if (e.type === "touchstart") {
-      offsetX = e.touches[0].clientX - main.offsetLeft;
-      offsetY = e.touches[0].clientY - main.offsetTop;
+      offsetX = e.touches[0].clientX - menuContainer.offsetLeft;
+      offsetY = e.touches[0].clientY - mainContainer.offsetTop;
     } else {
-      offsetX = e.clientX - main.offsetLeft;
-      offsetY = e.clientY - main.offsetTop;
+      offsetX = e.clientX - mainContainer.offsetLeft;
+      offsetY = e.clientY - mainContainer.offsetTop;
     }
 
     document.addEventListener("mousemove", handlePointerMove);
@@ -281,8 +377,8 @@ settingscontainer.appendChild(prompt);
       y = e.clientY - offsetY;
     }
 
-    main.style.left = `${x}px`;
-    main.style.top = `${y}px`;
+    mainContainer.style.left = `${x}px`;
+    mainContainer.style.top = `${y}px`;
   }
 
   function handlePointerUp() {
@@ -294,146 +390,120 @@ settingscontainer.appendChild(prompt);
     document.removeEventListener("mouseleave", handlePointerUp);
   }
 
-  button.addEventListener("mousedown", handlePointerDown);
-  button.addEventListener("touchstart", handlePointerDown);
+  buttonContainer.addEventListener("mousedown", handlePointerDown);
+  buttonContainer.addEventListener("touchstart", handlePointerDown);
   const hide = document.getElementById("hide");
   document.addEventListener("keydown", (e) => {
     if (e.key.toLowerCase() === "e") {
       if (document.activeElement !== text) {
-        main.classList.toggle("hidden");
+        mainContainer.classList.toggle("hidden");
       }
     }
 
-  
-    
-    input.addEventListener("keydown", async (e) => {
+    ChatInput.addEventListener("keydown", async (e) => {
       if (e.key === "Enter") {
-        const userInput = input.value.trim(); // Store and trim user input
-  
-          if (userInput !== "") {
-              input.value = ""; // Clear input immediately
-  
-              const userMessage = document.createElement("p");
-              userMessage.className = "userMessage";
-              userMessage.textContent = "You: " + userInput;
-              chat.appendChild(userMessage);
-              chat.scrollTop = chat.scrollHeight; // Scroll immediately after adding user message
-  
-              const botMessage = document.createElement("p"); // Create bot message element *before* the API call
-              botMessage.className = "botMessage";
-              botMessage.textContent = "Bot: Thinking..."; // Indicate that the bot is processing
-              chat.appendChild(botMessage);
-              chat.scrollTop = chat.scrollHeight; // Scroll after adding placeholder
-              fetch(
-                  "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" +
-                      localStorage.getItem("key"),
+        const userInput = ChatInput.value.trim(); // Store and trim user input
+
+        if (userInput !== "") {
+          ChatInput.value = ""; // Clear input immediately
+
+          const userMessage = document.createElement("p");
+          userMessage.className = "userMessage";
+          userMessage.textContent = "You: " + userInput;
+          chatContainer.appendChild(userMessage);
+          chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll immediately after adding user message
+
+          const botMessage = document.createElement("p"); // Create bot message element *before* the API call
+          botMessage.className = "botMessage";
+          botMessage.textContent = "Bot: Thinking..."; // Indicate that the bot is processing
+          chatContainer.appendChild(botMessage);
+          chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll after adding placeholder
+          fetch(
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" +
+              localStorage.getItem("key"),
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                system_instruction: {
+                  parts: [{ text: Prompt.value }]
+                },
+
+                contents: [
                   {
-                      method: "POST",
-                      headers: {
-                          "Content-Type": "application/json"
-                      },
-                      body: JSON.stringify({
-                        system_instruction: {
-            parts: [{text: prompt.value}]
-                        },
-                        
-                      
-                        contents: [
-                          {
-                            parts: [{ text: userInput }]
-                          }
-                        ]
-                      })
+                    parts: [{ text: userInput }]
                   }
-              )
-                  .then((response) => response.json())
-                  .then((data) => {
-                 
-                    chat.removeChild(botMessage);
-                      if (
-                          data.candidates &&
-                          data.candidates.length > 0 &&
-                          data.candidates[0].content
-                      ) {
-                          const botResponse = data.candidates[0].content.parts[0].text.toString().trim();
-                          const botMessage = document.createElement("p");
-                          botMessage.className = "botMessage";
-                          const parsedResponse = marked.parse(botResponse);
-  
-                          if (parsedResponse.includes('class*="language-')) { 
-                            // Use includes() for a simple check if the string exists
-                        
-                            // Select the element(s) containing the class.  You might need to adjust the selector
-                            // depending on exactly how marked.js outputs the HTML.
-                            const codeElements = document.querySelectorAll('[class*="language-"]');
-                        
-                        
-                            codeElements.forEach(element => {
-                                element.classList.toggle("language");  // Toggle the class
-                            });
-                        
-                            // ... other code to handle the response ... (e.g., append to the chat)
-                        
-                        
-                        } {
-                              botMessage.innerHTML = "Bot: " + parsedResponse;
-                              console.log("not found")
-                          }
-  
-                          chat.appendChild(botMessage);
-                          input.value = ""; // Clear input
-                          chat.scrollTop = chat.scrollHeight; // Scroll to bottom
-                      } else {
-                        
-                        // Handle cases where the API doesn't return a valid response
-                        alert(console.error("Invalid API response:", data));
-                        
-                        const errorMessage = document.createElement("p");
-                        errorMessage.className = "botMessage error";
-                        errorMessage.textContent = "Error: Could not get a response.";
-                        chat.appendChild(errorMessage);
-                        input.value = "";
-                        chat.scrollTop = chat.scrollHeight;
-                      }
-                  })
-                  .catch(error => {
-                      console.error("API request failed:", error);
-                      const errorMessage = document.createElement("p");
-                      errorMessage.className = "botMessage error";
-                      errorMessage.textContent = "Error: API request failed.";
-                      chat.appendChild(errorMessage);
-                      input.value = "";
-                      chat.scrollTop = chat.scrollHeight;
-                  });
-          }
+                ]
+              })
+            }
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              chatContainer.removeChild(botMessage);
+              if (
+                data.candidates &&
+                data.candidates.length > 0 &&
+                data.candidates[0].content
+              ) {
+                const botResponse = data.candidates[0].content.parts[0].text
+                  .toString()
+                  .trim();
+                const botMessage = document.createElement("p");
+                botMessage.className = "botMessage";
+                const parsedResponse = marked.parse(botResponse);
+
+               
+                {
+                  botMessage.innerHTML = "Bot: " + parsedResponse;
+                  console.log("not found");
+                }
+
+                chatContainer.appendChild(botMessage);
+                ChatInput.value = ""; // Clear input
+                chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll to bottom
+              } else {
+                // Handle cases where the API doesn't return a valid response
+                alert(console.error("Invalid API response:", data));
+
+                const errorMessage = document.createElement("p");
+                errorMessage.className = "botMessage error";
+                errorMessage.textContent = "Error: Could not get a response.";
+                chatContainer.appendChild(errorMessage);
+                ChatInput.value = "";
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+              }
+            })
+            .catch((error) => {
+              console.error("API request failed:", error);
+              const errorMessage = document.createElement("p");
+              errorMessage.className = "botMessage error";
+              errorMessage.textContent = "Error: API request failed.";
+              chatContainer.appendChild(errorMessage);
+              ChatInput.value = "";
+              chatContainer.scrollTop = chatContainer.scrollHeight;
+            });
+        }
       }
-  });
+    });
 
-
-
-
-
-
-
-
-    apiput.onchange = () => {
-      alert("updated key")
+    apiKey.onchange = () => {
+      alert("updated key");
       if (localStorage.getItem("key")) {
         // Key already exists, update it
-        localStorage.setItem("key", apiput.value);  
+        localStorage.setItem("key", apiKey.value);
         console.log("API key updated in localStorage.");
       } else {
         // Key doesn't exist, create it
-        localStorage.setItem("key", apiput.value);
+        localStorage.setItem("key", apiKey.value);
         console.log("API key created in localStorage.");
       }
+    };
 
-
-    }
-
-    prompt.onchange = () => {
+    Prompt.onchange = () => {
       alert("updated prompt");
-    }
+    };
   });
 }
 
