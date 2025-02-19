@@ -346,52 +346,104 @@ p{
  
 
 
-  function handlePointerDown(e) {
-    e.preventDefault();
-    isDragging = true;
 
-    if (e.type === "touchstart") {
-      offsetX = e.touches[0].clientX - menuContainer.offsetLeft;
-      offsetY = e.touches[0].clientY - mainContainer.offsetTop;
-    } else {
-      offsetX = e.clientX - mainContainer.offsetLeft;
-      offsetY = e.clientY - mainContainer.offsetTop;
+
+
+  function makeDraggable(element, handle) {
+    let isDragging = false;
+    let offsetX, offsetY;
+  
+    function handlePointerDown(e) {
+      e.preventDefault(); // Prevent default touch behavior (scrolling)
+      isDragging = true;
+  
+      const isTouch = e.type === "touchstart";
+      const event = isTouch ? e.touches[0] : e; // Use touches for touch events
+  
+      offsetX = event.clientX - element.offsetLeft;
+      offsetY = event.clientY - element.offsetTop;
+  
+      document.addEventListener("mousemove", handlePointerMove);
+      document.addEventListener("touchmove", handlePointerMove);
+      document.addEventListener("mouseup", handlePointerUp);
+      document.addEventListener("touchend", handlePointerUp);
+      document.addEventListener("mouseleave", handlePointerUp); // Important!
     }
-
-    document.addEventListener("mousemove", handlePointerMove);
-    document.addEventListener("touchmove", handlePointerMove);
-    document.addEventListener("mouseup", handlePointerUp);
-    document.addEventListener("touchend", handlePointerUp);
-    document.addEventListener("mouseleave", handlePointerUp);
-  }
-
-  function handlePointerMove(e) {
-    if (!isDragging) return;
-
-    let x, y;
-    if (e.type === "touchmove") {
-      x = e.touches[0].clientX - offsetX;
-      y = e.touches[0].clientY - offsetY;
-    } else {
-      x = e.clientX - offsetX;
-      y = e.clientY - offsetY;
+  
+    function handlePointerMove(e) {
+      if (!isDragging) return;
+  
+      const isTouch = e.type === "touchmove";
+      const event = isTouch ? e.touches[0] : e;
+  
+      const x = event.clientX - offsetX;
+      const y = event.clientY - offsetY;
+  
+      element.style.left = `${x}px`;
+      element.style.top = `${y}px`;
     }
-
-    mainContainer.style.left = `${x}px`;
-    mainContainer.style.top = `${y}px`;
+  
+    function handlePointerUp() {
+      isDragging = false;
+      document.removeEventListener("mousemove", handlePointerMove);
+      document.removeEventListener("touchmove", handlePointerMove);
+      document.removeEventListener("mouseup", handlePointerUp);
+      document.removeEventListener("touchend", handlePointerUp);
+      document.removeEventListener("mouseleave", handlePointerUp);
+    }
+  
+    // Attach listeners to the specified handle element
+    handle.addEventListener("mousedown", handlePointerDown);
+    handle.addEventListener("touchstart", handlePointerDown);
+  
+      element.style.position = 'fixed'; // Important: Must be positioned!
+      element.style.cursor = 'grab'; // Initial cursor style
+      handle.style.cursor = 'grab'; // Initial cursor style for handle
+  
   }
-
-  function handlePointerUp() {
-    isDragging = false;
-    document.removeEventListener("mousemove", handlePointerMove);
-    document.removeEventListener("touchmove", handlePointerMove);
-    document.removeEventListener("mouseup", handlePointerUp);
-    document.removeEventListener("touchend", handlePointerUp);
-    document.removeEventListener("mouseleave", handlePointerUp);
+  
+  
+  
+  // Example usage (assuming you have elements with these IDs):
+  const mainContainers = document.getElementById("main-container");
+  const buttonContainers = document.getElementById("button-container"); // Your "handle"
+  
+  if (mainContainer && buttonContainer) {
+    makeDraggable(mainContainer, buttonContainer);
   }
+  
+  
+  // For multiple elements with classes:
+  const containers = document.querySelectorAll('.main-container');
+  const handles = document.querySelectorAll('.button-container'); // Or a different class for handles
+  
+  containers.forEach((container, index) => {
+      if (handles[index]) { // Ensure a handle exists for each container
+          makeDraggable(container, handles[index]);
+      } else {
+          console.warn("No handle found for container", container);
+      }
+  });
 
-  buttonContainer.addEventListener("mousedown", handlePointerDown);
-  buttonContainer.addEventListener("touchstart", handlePointerDown);
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   const hide = document.getElementById("hide");
   document.addEventListener("keydown", (e) => {
     if (e.key.toLowerCase() === "e") {
