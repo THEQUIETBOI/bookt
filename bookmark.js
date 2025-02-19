@@ -50,6 +50,7 @@ const menuContainer = document.createElement('div');
 
   const add = document.createElement('button');
   add.id = 'add';
+  add.innerHTML = "+";
   menuContainerButtons.appendChild(add);
 
   const ChatInput = document.createElement('input');
@@ -149,7 +150,7 @@ const stylesheet = document.createElement('style');
     background-color: rgb(32, 32, 32);
     border-radius: 10px;
     margin-top: 30px;
-    padding: 15px;
+    padding: 30px;
     overflow-wrap: break-word; 
 }
 
@@ -160,7 +161,7 @@ const stylesheet = document.createElement('style');
     background-color: rgb(32, 32, 32);
     border-radius: 10px;
  margin-top: 30px;
- padding: 15px;
+ padding: 30px;
 
 }
 .me-container {
@@ -343,6 +344,12 @@ p{
 
 .hidden {
     display: none;
+}
+    @media only screen and (max-width: 600px) {
+    .main-container {
+        /* ... existing styles ... */
+        font-size: 14px; /* Adjust as needed */
+    }
 }
 
   `;
