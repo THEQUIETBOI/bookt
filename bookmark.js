@@ -106,50 +106,13 @@ const stylesheet = document.createElement('style');
   marcopolo.src = "https://cdn.jsdelivr.net/npm/marked/marked.min.js";
   document.head.appendChild(marcopolo);
  
-
-  settingsButton.addEventListener('click', () => {
-    settingsPage.style.visibility = "visible";
-});
-
-close.addEventListener('click', () => {
-    settingsPage.style.visibility = "hidden";
-});
-
-
-// Mobile-Friendly Approach (using both click and touch)
-settingsButton.addEventListener('click', showSettings);
-settingsButton.addEventListener('touchstart', showSettings); // For touch devices
-
-close.addEventListener('click', hideSettings);
-close.addEventListener('touchstart', hideSettings); // For touch devices
-
-
-function showSettings(e) {
-    e.preventDefault(); // Prevent default touch behavior (like scrolling) if needed
-    settingsPage.style.visibility = "visible";
+settingsButton.onclick = () => {
+  settingsPage.style.visibility = "visible";
 }
 
-function hideSettings(e) {
-    e.preventDefault(); // Prevent default touch behavior if needed
-    settingsPage.style.visibility = "hidden";
+close.onclick = () => {
+  settingsPage.style.visibility = "hidden";
 }
-
-
-// Another approach using pointer events (more modern, but might need polyfills for older browsers):
-settingsButton.addEventListener('pointerdown', showSettings);
-close.addEventListener('pointerdown', hideSettings);
-
-function showSettings(e) {
-    e.preventDefault(); // Prevent default touch behavior (like scrolling) if needed
-    settingsPage.style.visibility = "visible";
-}
-
-function hideSettings(e) {
-    e.preventDefault(); // Prevent default touch behavior if needed
-    settingsPage.style.visibility = "hidden";
-}
-
-
 
 
 
