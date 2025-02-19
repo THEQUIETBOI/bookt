@@ -227,6 +227,10 @@ close.onclick = () => {
     font-size 30px;
     cursor: pointer; 
     user-select: none;
+     -webkit-appearance: none; /* Remove default button styling (iOS) */
+    -moz-appearance: none; /* Remove default button styling (Firefox) */
+    appearance: none; /* Remove default button styling (general) */
+    touch-action: manipulation; /* Improves touch responsiveness */
 }
 
 
@@ -293,10 +297,7 @@ height: 60%;
 visibility:hidden;
 
 }
-.settings-page.active{
-    visibility:visible;
-    
-}
+
 
 .settings-content {
     color: white;
