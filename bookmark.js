@@ -94,12 +94,20 @@ const stylesheet = document.createElement('style');
  
 
   
-  settingsButton.onclick = () => {
+  settingsButton.addEventListener('click', () => {
     settingsPage.style.visibility = "visible";
-  };
-  close.onclick = () => {
+  });
+
+  close.addEventListener('click', () => {
     settingsPage.style.visibility = "hidden";
-  };
+  });
+
+
+
+
+
+
+
   stylesheet.innerHTML = `
  
 .main-container {
@@ -338,7 +346,7 @@ font-family: 'Times New Roman', Times, serif;
 }
 p{ 
     overflow: auto;
-    padding-top: 30px;
+    padding: 30px;
     overflow-wrap: break-word;
 }
 
