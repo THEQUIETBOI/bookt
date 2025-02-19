@@ -1,6 +1,7 @@
 function init() {
   const mainContainer = document.createElement('div');
   mainContainer.className ='main-container';
+  mainContainer.id = 'main-container';
   document.body.appendChild(mainContainer);
 
   const settingsPage = document.createElement('div');
@@ -340,6 +341,9 @@ p{
     overflow-wrap: break-word;
 }
 
+.hidden {
+    display: none;
+}
 
   `;
 
@@ -444,10 +448,10 @@ p{
 
 
   
-  const hide = document.getElementById("hide");
+  const hide = document.getElementById("main-container");
   document.addEventListener("keydown", (e) => {
     if (e.key.toLowerCase() === "e") {
-      if (document.activeElement !== text) {
+      if (document.activeElement !== ChatInput) {
         mainContainer.classList.toggle("hidden");
       }
     }
