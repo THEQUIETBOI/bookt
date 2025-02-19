@@ -338,7 +338,7 @@ font-family: 'Times New Roman', Times, serif;
 }
 p{ 
     overflow: auto;
-    padding: auto;
+    padding-top: 30px;
     overflow-wrap: break-word;
 }
 
