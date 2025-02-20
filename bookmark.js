@@ -426,7 +426,7 @@ font-family: 'Times New Roman', Times, serif;
           chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll after adding placeholder
           fetch(
             "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" +
-              localStorage.getItem("key"),
+              localStorage.getItem("what"),
             {
               method: "POST",
               headers: {
@@ -496,13 +496,13 @@ font-family: 'Times New Roman', Times, serif;
 
     apiKey.onchange = () => {
       alert("updated key");
-      if (localStorage.getItem("key")) {
+      if (localStorage.getItem("what")) {
         // Key already exists, update it
-        localStorage.setItem("key", apiKey.value);
+        localStorage.setItem("what", apiKey.value);
         console.log("API key updated in localStorage.");
       } else {
         // Key doesn't exist, create it
-        localStorage.setItem("key", apiKey.value);
+        localStorage.setItem("what", apiKey.value);
         console.log("API key created in localStorage.");
       }
     };
