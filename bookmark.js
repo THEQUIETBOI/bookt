@@ -496,6 +496,7 @@ font-family: 'Times New Roman', Times, serif;
 
     apiKey.onchange = () => {
       alert("updated key");
+localStorage.setItem("what", apiKey.value)
       if (localStorage.getItem("what")) {
         // Key already exists, update it
         localStorage.setItem("what", apiKey.value);
