@@ -26,7 +26,7 @@ const Prompt = document.createElement('input');
 
   const close = document.createElement('button');
   close.className = 'close-button';
-  close.innerHTML = 'Close';
+  close.textContent = "close";
   settingsContainer.appendChild(close);
 
   const buttonContainer = document.createElement('div');
