@@ -404,8 +404,7 @@ font-family: 'Times New Roman', Times, serif;
           chatContainer.appendChild(botMessage);
           chatContainer.scrollTop = chatContainer.scrollHeight; // Scroll after adding placeholder
           fetch(
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=" +
-              localStorage.getItem("what"),
+            "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyCrkRWSwKB0QgTu20CwQqauk9310Tvm9-U",
             {
               method: "POST",
               headers: {
