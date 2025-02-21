@@ -149,6 +149,7 @@ close.onclick = () => {
     border-radius: 10px;
     overflow-wrap: break-word; 
     margin-top: 10px;
+    padding: 10px;
 
     }
 
@@ -159,6 +160,7 @@ close.onclick = () => {
     background-color: rgb(32, 32, 32);
     border-radius: 10px;
     margin-top: 10px;
+    padding: 10px;
 
 }
 .me-container {
@@ -299,10 +301,6 @@ font-family: 'Times New Roman', Times, serif;
 
  
 
-
-
-
-
   function makeDraggable(element, handle) {
     let isDragging = false;
     let offsetX, offsetY;
@@ -379,25 +377,6 @@ font-family: 'Times New Roman', Times, serif;
       }
   });
 
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
   const hide = document.getElementById("main-container");
   document.addEventListener("keydown", (e) => {
     if (e.key.toLowerCase() === "e") {
